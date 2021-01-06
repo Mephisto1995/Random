@@ -113,31 +113,27 @@ public:
 	{
 		for (auto& animal : mAnimals)
 		{
-			Dog* d = GetAnimalType<Dog>(animal);
-
-			if (d != nullptr)
+			Dog* dog = GetAnimalType<Dog>(animal);
+			Cat* cat = GetAnimalType<Cat>(animal);
+			Lion* lion = GetAnimalType<Lion>(animal);
+			
+			if(dog)
 			{
 				std::cout << d->GetName() << std::endl;
 				std::cout << d->GetAge() << std::endl;
+				continue;
 			}
-			else
+			
+			if (cat)
 			{
-				Cat* c = GetAnimalType<Cat>(animal);
-
-				if (c != nullptr)
-				{
-					std::cout << c->GetName() << std::endl;
-					std::cout << c->GetAge() << std::endl;
-				}
-				else
-				{
-					Lion* l = GetAnimalType<Lion>(animal);
-
-					if (l != nullptr)
-					{
-						std::cout << l->GetAge() << std::endl;
-					}
-				}
+				std::cout << c->GetName() << std::endl;
+				std::cout << c->GetAge() << std::endl;
+				continue;
+			}
+			
+			if (lion)
+			{
+				std::cout << l->GetAge() << std::endl;
 			}
 		}
 	}
